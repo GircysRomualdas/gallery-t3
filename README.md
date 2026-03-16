@@ -2,8 +2,8 @@
 
 ## Todo
 
-- [ ] Make it deplay (vercel)
-- [ ] Scaffold basic ui with mock data
+- [x] Make it deplay (vercel)
+- [x] Scaffold basic ui with mock data
 - [ ] Actually set up a database (vercel postgres)
 - [ ] Attach database to UI
 - [ ] Add authentication (w/ clerk)
