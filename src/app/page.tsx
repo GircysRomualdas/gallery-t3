@@ -1,5 +1,7 @@
 import { db } from "~/server/db";
 
+export const dynamic = "force-dynamic";
+
 const mockImages = [
   {
     key: "n1ozR3gHhwpUHiAKDQqHzYZF4Tl7B3fWPRE8LmAgdrO0Che9",
