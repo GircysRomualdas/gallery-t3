@@ -1,22 +1,31 @@
 import { db } from "~/server/db";
+import { currentUser } from "@clerk/nextjs/server";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
+  const user = await currentUser();
+
+  if (!user) {
+    return (
+      <div className="flex h-full w-full flex-col items-center justify-center gap-4 text-2xl">
+        <div>Please sign in to view images</div>
+      </div>
+    );
+  }
+
   const images = await db.query.images.findMany({
     orderBy: (model, { desc }) => desc(model.id),
   });
 
   return (
-    <main className="">
-      <div className="flex flex-wrap gap-4">
-        {images.map((image) => (
-          <div key={image.id} className="flex w-48 flex-col">
-            <img src={image.url} />
-            <div>{image.name}</div>
-          </div>
-        ))}
-      </div>
+    <main className="flex flex-wrap gap-4 p-4">
+      {images.map((image) => (
+        <div key={image.id} className="flex w-48 flex-col">
+          <img src={image.url} alt={image.name} />
+          <div>{image.name}</div>
+        </div>
+      ))}
     </main>
   );
 }
