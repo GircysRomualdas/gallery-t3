@@ -1,6 +1,6 @@
-import { db } from "~/server/db";
 import { currentUser } from "@clerk/nextjs/server";
 import { getMyImages } from "~/server/queries";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
@@ -18,10 +18,16 @@ export default async function HomePage() {
   const images = await getMyImages();
 
   return (
-    <main className="flex flex-wrap gap-4 p-4">
+    <main className="flex flex-wrap justify-center gap-4 p-4">
       {images.map((image) => (
         <div key={image.id} className="flex w-48 flex-col">
-          <img src={image.url} alt={image.name} />
+          <Image
+            src={image.url}
+            alt={image.name}
+            width={500}
+            height={500}
+            style={{ objectFit: "contain" }}
+          />
           <div>{image.name}</div>
         </div>
       ))}
