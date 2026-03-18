@@ -1,7 +1,7 @@
 "use client";
 
 import { useAuth, SignInButton, UserButton } from "@clerk/nextjs";
-import SimpleUploadButton from "./simple-ipload-button";
+import SimpleUploadButton from "./simple-upload-button";
 
 export default function TopNav() {
   const { isSignedIn } = useAuth();
