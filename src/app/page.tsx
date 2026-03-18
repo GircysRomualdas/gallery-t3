@@ -10,7 +10,7 @@ export default async function HomePage() {
 
   if (!user) {
     return (
-      <div className="flex h-full w-full flex-col items-center justify-center gap-4 text-2xl">
+      <div className="h-full w-full text-center text-2xl">
         <div>Please sign in to view images</div>
       </div>
     );
@@ -21,14 +21,14 @@ export default async function HomePage() {
   return (
     <main className="flex flex-wrap justify-center gap-4 p-4">
       {images.map((image) => (
-        <div key={image.id} className="flex w-48 flex-col">
+        <div key={image.id} className="flex h-48 w-48 flex-col">
           <Link href={`/img/${image.id}`}>
             <Image
               src={image.url}
-              alt={image.name}
-              width={500}
-              height={500}
               style={{ objectFit: "contain" }}
+              width={192}
+              height={192}
+              alt={image.name}
             />
           </Link>
           <div>{image.name}</div>

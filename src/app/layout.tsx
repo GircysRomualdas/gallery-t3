@@ -32,12 +32,10 @@ export default function RootLayout({
       <html lang="en" className={`${geist.variable}`}>
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <body>
-          <div className="grid h-dvh grid-rows-[auto,1fr]">
-            <div className="h-16">
-              <TopNav />
-            </div>
+          <div className="grid h-screen grid-rows-[auto,1fr]">
+            <TopNav />
 
-            <main className="overflow-y-auto">{children}</main>
+            <main className="overflow-y-scroll">{children}</main>
           </div>
           {modal}
           <div id="modal-root" />
