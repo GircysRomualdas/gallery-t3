@@ -1,4 +1,4 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import { getMyImages } from "~/server/queries";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,12 +6,12 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const user = await currentUser();
+  const { userId } = await auth();
 
-  if (!user) {
+  if (!userId) {
     return (
       <div className="h-full w-full text-center text-2xl">
-        <div>Please sign in to view images</div>
+        Please sign in to view images
       </div>
     );
   }
