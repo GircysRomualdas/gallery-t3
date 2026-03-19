@@ -16,4 +16,4 @@
 - [x] Shadcn UI (toasts)
 - [x] Analytics (posthog)
 - [x] Delete button (w/ Server Actions)
-- [ ] Ratelimiting (upstash)
+- [x] Ratelimiting (upstash)
